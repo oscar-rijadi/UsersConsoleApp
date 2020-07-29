@@ -1,0 +1,6 @@
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Domain\bin\Debug\UsersConsoleApp.Domain.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Domain\bin\Debug\UsersConsoleApp.Domain.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Domain\obj\Debug\UsersConsoleApp.Domain.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Domain\obj\Debug\UsersConsoleApp.Domain.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Domain\bin\Debug\Newtonsoft.Json.xml

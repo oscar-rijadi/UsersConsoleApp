@@ -1,0 +1,9 @@
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\bin\Debug\UsersConsoleApp.Interfaces.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\bin\Debug\UsersConsoleApp.Interfaces.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\obj\Debug\UsersConsoleApp.Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\obj\Debug\UsersConsoleApp.Interfaces.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\obj\Debug\UsersConsoleApp.Interfaces.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\bin\Debug\UsersConsoleApp.Domain.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\bin\Debug\Newtonsoft.Json.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\bin\Debug\UsersConsoleApp.Domain.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Interfaces\bin\Debug\Newtonsoft.Json.xml

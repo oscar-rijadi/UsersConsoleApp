@@ -1,0 +1,13 @@
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\UsersConsoleApp.Core.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\UsersConsoleApp.Core.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\UsersConsoleApp.Interfaces.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\UsersConsoleApp.Interfaces.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\obj\Debug\UsersConsoleApp.Core.csprojResolveAssemblyReference.cache
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\obj\Debug\UsersConsoleApp.Core.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\obj\Debug\UsersConsoleApp.Core.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\UsersConsoleApp.Domain.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\Newtonsoft.Json.dll
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\UsersConsoleApp.Domain.pdb
+C:\Users\OJDA\Desktop\Oz\Helping Material\UsersConsoleApp\src\UsersConsoleApp.Core\bin\Debug\Newtonsoft.Json.xml
