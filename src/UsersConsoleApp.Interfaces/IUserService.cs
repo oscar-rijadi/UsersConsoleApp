@@ -5,10 +5,10 @@ namespace UsersConsoleApp.Interfaces
 {
     public interface IUserService
     {
-        string GetUserFullName(IEnumerable<User> data, int id);
+        string GetUserFullName(int id);
 
-        string GetUsersFirstName(IEnumerable<User> data, int age, string stringSeparator);
+        string GetUsersFirstName(int age, string stringSeparator);
 
-        IEnumerable<UserGenderByAge> GetNumberOfGenderGroupByAge(IEnumerable<User> data);
+        IEnumerable<UserGenderByAge> GetNumberOfGenderGroupByAge();
     }
 }

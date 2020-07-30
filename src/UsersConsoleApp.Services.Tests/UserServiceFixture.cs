@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Moq;
 using NUnit.Framework;
 using UsersConsoleApp.Domain;
+using UsersConsoleApp.Interfaces;
 
 namespace UsersConsoleApp.Services.Tests
 {
     [TestFixture(Category = "Unit")]
     public class UserServiceFixture
     {
+        private Mock<ICachingService> _mockCachingService;
         private UserService _userService;
 
         [SetUp]
         public void SetUp()
         {
-            _userService = new UserService();
+            _mockCachingService = new Mock<ICachingService>();
+            _userService = new UserService(_mockCachingService.Object);
         }
 
         [Test]
@@ -31,9 +35,10 @@ namespace UsersConsoleApp.Services.Tests
             {
                 testUser
             };
+            _mockCachingService.Setup(x => x.Get(It.IsAny<string>())).Returns(data);
 
             // act
-            var result = _userService.GetUserFullName(data, testId);
+            var result = _userService.GetUserFullName(testId);
 
             // assert
             Assert.AreEqual(string.Empty, result);
@@ -54,9 +59,10 @@ namespace UsersConsoleApp.Services.Tests
             {
                 testUser
             };
+            _mockCachingService.Setup(x => x.Get(It.IsAny<string>())).Returns(data);
 
             // act
-            var result = _userService.GetUserFullName(data, testId);
+            var result = _userService.GetUserFullName(testId);
 
             // assert
             Assert.AreEqual($"{testUser.FirstName} {testUser.LastName}", result);
@@ -75,9 +81,10 @@ namespace UsersConsoleApp.Services.Tests
             {
                 testUser
             };
+            _mockCachingService.Setup(x => x.Get(It.IsAny<string>())).Returns(data);
 
             // act
-            var result = _userService.GetUsersFirstName(data, testAge, ",");
+            var result = _userService.GetUsersFirstName(testAge, ",");
 
             // assert
             Assert.AreEqual(string.Empty, result);
@@ -102,9 +109,10 @@ namespace UsersConsoleApp.Services.Tests
             {
                 testUser1, testUser2
             };
+            _mockCachingService.Setup(x => x.Get(It.IsAny<string>())).Returns(data);
 
             // act
-            var result = _userService.GetUsersFirstName(data, testAge, ",");
+            var result = _userService.GetUsersFirstName(testAge, ",");
 
             // assert
             Assert.AreEqual($"{testUser1.FirstName},{testUser2.FirstName}", result);
@@ -115,9 +123,10 @@ namespace UsersConsoleApp.Services.Tests
         {
             // arrange
             var data = Enumerable.Empty<User>();
+            _mockCachingService.Setup(x => x.Get(It.IsAny<string>())).Returns(data);
 
             // act
-            var result = _userService.GetNumberOfGenderGroupByAge(data);
+            var result = _userService.GetNumberOfGenderGroupByAge();
 
             // assert
             Assert.AreEqual(Enumerable.Empty<User>(), result);
@@ -151,9 +160,10 @@ namespace UsersConsoleApp.Services.Tests
             {
                 testUser1, testUser2, testUser3, testUser4
             };
+            _mockCachingService.Setup(x => x.Get(It.IsAny<string>())).Returns(data);
 
             // act
-            var result = _userService.GetNumberOfGenderGroupByAge(data);
+            var result = _userService.GetNumberOfGenderGroupByAge();
 
             // assert
             Assert.AreNotEqual(Enumerable.Empty<User>(), result);

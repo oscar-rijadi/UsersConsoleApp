@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICachingService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="IApiService.cs" />
     <Compile Include="IMappingService.cs" />

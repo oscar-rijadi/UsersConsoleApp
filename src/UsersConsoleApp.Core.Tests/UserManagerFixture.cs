@@ -10,14 +10,12 @@ namespace UsersConsoleApp.Core.Tests
     [TestFixture(Category = "Unit")]
     public class UserManagerFixture
     {
-        private List<User> _mockData;
         private Mock<IUserService> _mockUserService;
         private UserManager _userManager;
 
         [SetUp]
         public void SetUp()
         {
-            _mockData = new List<User>();
             _mockUserService = new Mock<IUserService>();
             _userManager = new UserManager(_mockUserService.Object);
         }
@@ -26,11 +24,11 @@ namespace UsersConsoleApp.Core.Tests
         public void GetUserFullName_WillReturnEmptyString()
         {
             // arrange
-            _mockUserService.Setup(x => x.GetUserFullName(It.IsAny<IEnumerable<User>>(), It.IsAny<int>()))
+            _mockUserService.Setup(x => x.GetUserFullName(It.IsAny<int>()))
                 .Returns(string.Empty);
 
             // act
-            var result = _userManager.GetUserFullName(_mockData, 1);
+            var result = _userManager.GetUserFullName(1);
 
             // assert
             Assert.AreEqual(string.Empty, result);
@@ -43,11 +41,11 @@ namespace UsersConsoleApp.Core.Tests
         public void GetUserFullName_WillReturnValidString(string expected)
         {
             // arrange
-            _mockUserService.Setup(x => x.GetUserFullName(It.IsAny<IEnumerable<User>>(), It.IsAny<int>()))
+            _mockUserService.Setup(x => x.GetUserFullName(It.IsAny<int>()))
                 .Returns(expected);
 
             // act
-            var result = _userManager.GetUserFullName(_mockData, 1);
+            var result = _userManager.GetUserFullName(1);
 
             // assert
             Assert.AreEqual(expected, result);
@@ -57,11 +55,11 @@ namespace UsersConsoleApp.Core.Tests
         public void GetUsersFirstName_WillReturnEmptyString()
         {
             // arrange
-            _mockUserService.Setup(x => x.GetUsersFirstName(It.IsAny<IEnumerable<User>>(), It.IsAny<int>(), It.IsAny<string>()))
+            _mockUserService.Setup(x => x.GetUsersFirstName(It.IsAny<int>(), It.IsAny<string>()))
                 .Returns(string.Empty);
 
             // act
-            var result = _userManager.GetUsersFirstName(_mockData, 1, ",");
+            var result = _userManager.GetUsersFirstName(1, ",");
 
             // assert
             Assert.AreEqual(string.Empty, result);
@@ -74,11 +72,11 @@ namespace UsersConsoleApp.Core.Tests
         public void GetUsersFirstName_WillReturnCommaSeparatedString(string expected)
         {
             // arrange
-            _mockUserService.Setup(x => x.GetUsersFirstName(It.IsAny<IEnumerable<User>>(), It.IsAny<int>(), It.IsAny<string>()))
+            _mockUserService.Setup(x => x.GetUsersFirstName(It.IsAny<int>(), It.IsAny<string>()))
                 .Returns(expected);
 
             // act
-            var result = _userManager.GetUsersFirstName(_mockData, 1, ",");
+            var result = _userManager.GetUsersFirstName(1, ",");
 
             // assert
             Assert.AreEqual(expected, result);
@@ -89,11 +87,11 @@ namespace UsersConsoleApp.Core.Tests
         {
             // arrange
             var emptyEnumerable = Enumerable.Empty<UserGenderByAge>();
-            _mockUserService.Setup(x => x.GetNumberOfGenderGroupByAge(It.IsAny<IEnumerable<User>>()))
+            _mockUserService.Setup(x => x.GetNumberOfGenderGroupByAge())
                 .Returns(emptyEnumerable);
 
             // act
-            var result = _userManager.GetNumberOfGenderGroupByAge(_mockData);
+            var result = _userManager.GetNumberOfGenderGroupByAge();
 
             // assert
             Assert.AreEqual(emptyEnumerable, result);
@@ -116,11 +114,11 @@ namespace UsersConsoleApp.Core.Tests
             {
                 testingUserGenderByAge
             };
-            _mockUserService.Setup(x => x.GetNumberOfGenderGroupByAge(It.IsAny<IEnumerable<User>>()))
+            _mockUserService.Setup(x => x.GetNumberOfGenderGroupByAge())
                 .Returns(validData);
 
             // act
-            var result = _userManager.GetNumberOfGenderGroupByAge(_mockData);
+            var result = _userManager.GetNumberOfGenderGroupByAge();
 
             // assert
             Assert.AreEqual(validData, result);

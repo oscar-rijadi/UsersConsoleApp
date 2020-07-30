@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Moq;
 using NUnit.Framework;
 using UsersConsoleApp.Domain;
@@ -12,6 +11,7 @@ namespace UsersConsoleApp.Core.Tests
     {
         private string _apiEndpoint;
         private Mock<IDataService> _mockDataService;
+        private Mock<ICachingService> _mockCachingService;
         private DataManager _dataManager;
 
         [SetUp]
@@ -19,11 +19,12 @@ namespace UsersConsoleApp.Core.Tests
         {
             _apiEndpoint = "testapiendpoint";
             _mockDataService = new Mock<IDataService>();
-            _dataManager = new DataManager(_mockDataService.Object);
+            _mockCachingService = new Mock<ICachingService>();
+            _dataManager = new DataManager(_mockDataService.Object, _mockCachingService.Object);
         }
 
         [Test]
-        public void GetData_WillReturnEmptyIEnumerable()
+        public void GetData_WillReturnFalseIfGetEmptyEnumerable()
         {
             // arrange
             var emptyEnumerable = Enumerable.Empty<User>();
@@ -34,34 +35,7 @@ namespace UsersConsoleApp.Core.Tests
             var result = _dataManager.GetData<User>(_apiEndpoint);
 
             // assert
-            Assert.AreEqual(emptyEnumerable, result);
-        }
-
-        [Test]
-        [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(3)]
-        public void GetData_WillReturnValidIEnumerable(int id)
-        {
-            // arrange
-            var testingUser = new User
-            {
-                Id = id
-            };
-            var validData = new List<User>()
-            {
-                testingUser
-            };
-            _mockDataService.Setup(x => x.GetData<User>(It.IsAny<string>()))
-                .Returns(validData);
-
-            // act
-            var result = _dataManager.GetData<User>(_apiEndpoint);
-
-            // assert
-            Assert.AreEqual(validData, result);
-            Assert.AreEqual(1, result.Count());
-            Assert.AreEqual(id, result.First().Id);
+            Assert.AreEqual(false, result);
         }
     }
 }

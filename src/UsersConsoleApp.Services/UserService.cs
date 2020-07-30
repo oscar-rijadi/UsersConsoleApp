@@ -7,9 +7,16 @@ namespace UsersConsoleApp.Services
 {
     public class UserService : IUserService
     {
-        public string GetUserFullName(IEnumerable<User> data, int id)
+        private readonly ICachingService _cachingService;
+
+        public UserService(ICachingService cachingService)
         {
-            var arrData = data.ToArray();
+            _cachingService = cachingService;
+        }
+
+        public string GetUserFullName(int id)
+        {
+            var arrData = ((IEnumerable<User>)_cachingService.Get(typeof(User).ToString())).ToArray();
             if (arrData.FirstOrDefault(x => x.Id == id) != null)
             {
                 return arrData.First(x => x.Id == id).FullName;
@@ -17,17 +24,19 @@ namespace UsersConsoleApp.Services
             return string.Empty;
         }
 
-        public string GetUsersFirstName(IEnumerable<User> data, int age, string stringSeparator)
+        public string GetUsersFirstName(int age, string stringSeparator)
         {
-            var result = data.ToArray()
+            var arrData = ((IEnumerable<User>)_cachingService.Get(typeof(User).ToString())).ToArray();
+            var result = arrData
                 .Where(x => x.Age == age)
                 .Select(x => x.FirstName);
             return string.Join(stringSeparator, result);
         }
 
-        public IEnumerable<UserGenderByAge> GetNumberOfGenderGroupByAge(IEnumerable<User> data)
+        public IEnumerable<UserGenderByAge> GetNumberOfGenderGroupByAge()
         {
-            return data.ToArray()
+            var arrData = ((IEnumerable<User>)_cachingService.Get(typeof(User).ToString())).ToArray();
+            return arrData
                 .GroupBy(x => x.Age)
                 .Select(group => new UserGenderByAge
                 {

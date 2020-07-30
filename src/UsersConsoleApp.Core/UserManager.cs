@@ -13,19 +13,19 @@ namespace UsersConsoleApp.Core
             _userService = userService;
         }
 
-        public string GetUserFullName(IEnumerable<User> data, int id)
+        public string GetUserFullName(int id)
         {
-            return _userService.GetUserFullName(data, id);
+            return _userService.GetUserFullName(id);
         }
 
-        public string GetUsersFirstName(IEnumerable<User> data, int age, string stringSeparator)
+        public string GetUsersFirstName(int age, string stringSeparator)
         {
-            return _userService.GetUsersFirstName(data, age, stringSeparator);
+            return _userService.GetUsersFirstName(age, stringSeparator);
         }
 
-        public IEnumerable<UserGenderByAge> GetNumberOfGenderGroupByAge(IEnumerable<User> data)
+        public IEnumerable<UserGenderByAge> GetNumberOfGenderGroupByAge()
         {
-            return _userService.GetNumberOfGenderGroupByAge(data);
+            return _userService.GetNumberOfGenderGroupByAge();
         }
     }
 }

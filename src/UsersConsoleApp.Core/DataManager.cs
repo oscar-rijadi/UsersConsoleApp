@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using UsersConsoleApp.Domain.Helpers;
 using UsersConsoleApp.Interfaces;
 
 namespace UsersConsoleApp.Core
@@ -6,15 +6,24 @@ namespace UsersConsoleApp.Core
     public class DataManager
     {
         private readonly IDataService _dataService;
+        private readonly ICachingService _cachingService;
 
-        public DataManager(IDataService dataService)
+        public DataManager(IDataService dataService,
+            ICachingService cachingService)
         {
             _dataService = dataService;
+            _cachingService = cachingService;
         }
 
-        public IEnumerable<T> GetData<T>(string apiEndpoint)
+        public bool GetData<T>(string apiEndpoint)
         {
-            return _dataService.GetData<T>(apiEndpoint);
+            var result = _dataService.GetData<T>(apiEndpoint);
+            if (result.IsAny())
+            {
+                _cachingService.Set(typeof(T).ToString(), result);
+                return true;
+            }
+            return false;
         }
     }
 }
